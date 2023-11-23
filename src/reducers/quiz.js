@@ -4,16 +4,37 @@ import { createSlice } from "@reduxjs/toolkit";
 const questions = [
   {
     id: 1,
-    questionText: "Who set the Olympic record for the 100m dash in 2012?",
-    options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
-    correctAnswerIndex: 0
+    questionText: "Which country is the band AC/DC from?",
+    options: ["New Zealand", "UK", "USA", "Australia"],
+    correctAnswerIndex: 3 // Australia
   },
   {
     id: 2,
     questionText:
-      "When was Michael Phelps last named male World Swimmer of the Year?",
-    options: ["2012", "2014", "2016", "2018"],
-    correctAnswerIndex: 2
+      "What is the longest that an elephant has ever lived? (That we know of)",
+    options: ["17 years", "49 years", "86 years", "142 years"],
+    correctAnswerIndex: 2 // 86 years
+  },
+  {
+    id: 3,
+    questionText:
+      "How many rings are on the Olympic flag?",
+    options: ["None", "4", "5", "7"],
+    correctAnswerIndex: 2 // 5
+  },
+  {
+    id: 4,
+    questionText:
+      " How did Spider-Man get his powers?",
+    options: ["Bitten by a radioactive spider", "Born with them", "Military experiment", "Woke up with them after a strange dream"],
+    correctAnswerIndex: 0 // Bitten by a radioactive spider
+  },
+  {
+    id: 5,
+    questionText:
+      "Which of these animals does NOT appear in the Chinese zodiac?",
+    options: ["Bear", "Dog", "Dragon", "Rabbit"],
+    correctAnswerIndex: 0 // Bear
   }
 ];
 
@@ -40,6 +61,8 @@ export const quiz = createSlice({
      *    answer      - The answer string.
      *    isCorrect   - true/false if the answer was the one which the question says is correct.
      *
+     * 
+     * 
      * When dispatching this action, you should pass an object as the payload with `questionId`
      * and `answerIndex` keys. See the readme for more details.
      */

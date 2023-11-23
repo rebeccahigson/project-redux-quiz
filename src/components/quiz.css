@@ -1,0 +1,117 @@
+
+
+.quiz-wrapper{
+    width:500px;
+    /*border:1px solid blue;*/
+}
+.quiz-summary p{
+    text-align:center;
+}
+
+.progress{
+    text-align:center;
+    color:rgba(251, 251, 251, 1);
+    padding:20px 0;
+}
+.quiz-choice-container{
+}
+
+
+/*-- COLORS -------------------*/
+.col-1-charcoal{
+    background-color:rgba(46, 64, 87, 1);
+}
+.col-2-zomp{
+    background-color:rgba(93, 152, 119, 1);
+}
+.col-3-teaGreen{
+    background-color:rgba(202, 255, 185, 1);
+}
+.col-4-lightGreen{
+    background-color:rgba(174, 247, 142, 1);
+}
+.col-5-yellowGreen{
+    background-color:rgba(192, 212, 97, 1);
+}
+.col-6-red{
+    background-color:rgba(232, 13, 13, 0.3);
+}
+
+.quiz-h1{
+    padding:20px 0;
+    text-align:center;
+    font-size:34px;
+}
+
+.bottom-buttons{
+    display:flex;
+    /*justify-content: space-between;*/
+    justify-content: center;
+    margin:60px 0;
+}
+
+.quiz-choice-button{
+    border:none;
+    width:100%;
+    text-align:left;
+    padding:20px;
+    margin:0 0 15px 0;
+    border-radius:5px;
+    transition: all .1s ease-in-out; 
+    cursor: pointer;
+}
+.quiz-choice-button:hover{
+    transform: scale(1.01); 
+}
+.quiz-choice-button:selected{
+    background-color:red; 
+}
+
+.next{
+    color:#fff;
+}
+button{
+    border:none;
+    padding:15px 25px;
+    border-radius: 5px;
+    font-weight:bold;
+    font-size:16px;
+    color:rgba(46, 64, 87, 1);
+}
+.quiz-choice-button-correct,
+.quiz-choice-button-wrong{
+    width:100%;
+    text-align:left;
+    padding:20px;
+    margin:0 0 15px 0;
+    border-radius:5px;
+    transition: all .1s ease-in-out; 
+    cursor: pointer;
+}
+
+.quiz-choice-button-wrong{
+    border:2px solid red;
+}
+.quiz-choice-button-correct{
+    border:2px solid green;
+}
+.x-wrong{
+    font-size:20px;
+    margin-right:10px;
+    color:red;
+}
+.check{
+    font-size:20px;
+    margin-right:10px;
+    color:green;
+}
+
+@media screen and (max-width:500px){
+    .quiz-wrapper{
+        width:90%;
+    }
+    .quiz-h1{
+
+        font-size:24px;
+    }
+}
