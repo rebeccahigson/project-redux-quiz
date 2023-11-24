@@ -1,15 +1,18 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { quiz } from "../reducers/quiz";
 import { QuestionSummary } from "./QuestionSummary";
 import "./quiz.css";
+import { Answer } from "./Answer"
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
-
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
+
+  if (!question) {
+    return <h1>Oh no! I could not find the current question!</h1>;
+  }
 
   // Submit answer
   const handleSubmitAnswer = (answerIndex) => {
@@ -19,64 +22,45 @@ export const CurrentQuestion = () => {
         answerIndex: answerIndex,
       })
     );
+
+    if (answerIndex === question.correctAnswerIndex) {
+      console.log("You are correct")
+
+    } else { console.log("you are wrong")}
   };
 
-  // Next question
-  const handleGoToNextQuestion = () => {
+   // Next question
+   const handleGoToNextQuestion = () => {
     dispatch(quiz.actions.goToNextQuestion());
+
+    if (state.quiz.currentQuestionIndex + 1 === state.quiz.questions.length) {
+      console.log("Last question reached");
+    }
   };
-
-  if (!question) {
-    return <h1>Oh no! I could not find the current question!</h1>;
-  }
-
+ 
   return (
     <section className="quiz-wrapper">
-      <p className="bold progress col-1-charcoal">
+      <header className="bold progress col-1-charcoal">
         Question {question.id} of 5
-      </p>
+      </header>
+
       <form>
-        <h1 className="quiz-h1">Question: {question.questionText}</h1>
+        <h1>Question: {question.questionText}</h1>
 
         {/* Answer options array */}
         {question.options.map((choice, index) => (
           <div key={index} className="quiz-choice-container">
             <button
               className="quiz-choice-button col-3-teaGreen"
-              onClick={() => handleSubmitAnswer(index)}
-            >
+              onClick={() => handleSubmitAnswer(index)}>
               {choice}
             </button>
           </div>
         ))}
+
+        <Answer />
+        
       </form>
-      <p>You answered {question.options[question.answerIndex]}</p>
-      <p>
-        <span className="bold">The correct answer is:</span>{" "}
-        {question.options[question.correctAnswerIndex]}
-      </p>
-
-      {/* Next and submit button */}
-      <div className="bottom-buttons">
-        {question.id < 4 ? (
-          <button
-            className="col-1-charcoal next"
-            onClick={handleGoToNextQuestion}
-          >
-            Next question
-          </button>
-        ) : (
-          <button className="col-4-lightGreen"> Submit</button>
-        )}
-      </div>
-
-      <button className="quiz-choice-button-correct col-3-teaGreen">
-        <span className="check">✓</span> Testing Correct
-      </button>
-      <button className="quiz-choice-button-wrong col-6-red">
-        <span className="x-wrong">✘</span> Testing Wrong
-      </button>
-      <QuestionSummary />
     </section>
   );
 };

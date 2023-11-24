@@ -59,7 +59,7 @@ export const quiz = createSlice({
      *    question    - A copy of the entire question object, to make it easier to show
      *                  details about the question in your UI.
      *    answer      - The answer string.
-     *    isCorrect   - true/false if the answer was the one which the question says is correct.
+     *    isCorrect   - true/false if the answer was the one which the question says is correct. 
      *
      * 
      * 
