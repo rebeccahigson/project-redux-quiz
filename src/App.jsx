@@ -2,7 +2,7 @@
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { quiz } from './reducers/quiz';
-
+import './components/quiz.css';
 import { CurrentQuestion } from './components/CurrentQuestion';
 
 const reducer = combineReducers({
@@ -15,7 +15,9 @@ export const App = () => {
   return (
     <Provider store={store}>
       <main>
-        <CurrentQuestion />
+        <section className="quiz-wrapper">
+          <CurrentQuestion />
+        </section>
       </main>
     </Provider>
   );
