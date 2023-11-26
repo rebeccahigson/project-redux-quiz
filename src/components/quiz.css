@@ -76,14 +76,7 @@ button{
     font-size:16px;
     color:rgba(46, 64, 87, 1);
 }
-button.next:hover{
-    border:none;
-    padding:15px 25px;
-    border-radius: 5px;
-    font-weight:bold;
-    font-size:16px;
-    color:rgba(46, 64, 87, 1);
-}
+
 .quiz-choice-button-correct,
 .quiz-choice-button-wrong{
     width:100%;
@@ -100,10 +93,15 @@ button.next:hover{
 }
 .quiz-choice-button-correct{
     border:2px solid green;
+    background-color:rgba(93, 152, 119, 0.4);
 }
 
 header{
     width:100%;
+}
+
+.hide{
+    display:none;
 }
 
 

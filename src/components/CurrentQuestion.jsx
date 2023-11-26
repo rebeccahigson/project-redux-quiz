@@ -1,16 +1,7 @@
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { AnswerOptions } from "./AnswerOptions";
 import { QuestionSummary } from "./QuestionSummary";
-
-
-/*
-- Show questions index out of 5
-- Map out options to the questions
-- After the handleSubmit show answers page and highlight if correct or not
-- When quizOver is true show submit button
-- When submit is clicked show a summary page of all questions with a restart button
-*/
 
 
 export const CurrentQuestion = () => {
@@ -20,8 +11,6 @@ export const CurrentQuestion = () => {
   const quizOver = useSelector(
     (state) => state.quiz.quizOver
   );
-
-  
 
   if (!question) {
     return <h1>Oh no! I could not find the current question!</h1>;

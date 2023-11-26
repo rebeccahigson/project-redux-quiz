@@ -12,6 +12,7 @@ export const AnswerOptions = () => {
     (state) => state.quiz.answers.find((a) => a.questionId === question.id)
   );
 
+  // Set if selected answer is correct
   const [isCorrect, setIsCorrect] = useState(null)
 
   // Submit answer
@@ -22,8 +23,6 @@ export const AnswerOptions = () => {
         answerIndex: selectedAnswerIndex,
       })
     );
-
-    
 
     if (selectedAnswerIndex === question.correctAnswerIndex) {
       console.log("You are correct")
@@ -64,17 +63,27 @@ export const AnswerOptions = () => {
 
       {answer !== undefined && (
         <>
-        <p className="correct-answer">The correct answer is {question.options[question.correctAnswerIndex]}.</p>
+        <p className={`correct-answer ${isCorrect !== null && isCorrect ? "hide" : ""}`}>
+          The correct answer is "{question.options[question.correctAnswerIndex]}".
+        </p>
         <div className="bottom-buttons">
+        {question.id < 4 ? (
           <button
           className="col-1-charcoal next"
           onClick={handleGoToNextQuestion}>
               Next Question
           </button>
+        ) : (
+          <button 
+          className="col-4-lightGreen"
+          onClick={handleGoToNextQuestion}> 
+          Submit
+          </button>
+        )}
+          
         </div>
         </>
       )}
-     
     </div>
   );
 };

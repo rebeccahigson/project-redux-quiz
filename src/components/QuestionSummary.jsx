@@ -21,7 +21,6 @@ export const QuestionSummary = () => {
 
         <div className="bottom-buttons">
           <button 
-          className="bottom-buttons" 
           onClick={handleRestart}>
             Try again
           </button>
