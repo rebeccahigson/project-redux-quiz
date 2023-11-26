@@ -13,8 +13,6 @@
     color:rgba(251, 251, 251, 1);
     padding:20px 0;
 }
-.quiz-choice-container{
-}
 
 
 /*-- COLORS -------------------*/
@@ -37,15 +35,17 @@
     background-color:rgba(232, 13, 13, 0.3);
 }
 
-.quiz-h1{
+h1{
     padding:20px 0;
     text-align:center;
     font-size:34px;
 }
+.correct-answer{
+    text-align:center;
+}
 
 .bottom-buttons{
     display:flex;
-    /*justify-content: space-between;*/
     justify-content: center;
     margin:60px 0;
 }
@@ -63,14 +63,20 @@
 .quiz-choice-button:hover{
     transform: scale(1.01); 
 }
-.quiz-choice-button:selected{
-    background-color:red; 
-}
+
 
 .next{
     color:#fff;
 }
 button{
+    border:none;
+    padding:15px 25px;
+    border-radius: 5px;
+    font-weight:bold;
+    font-size:16px;
+    color:rgba(46, 64, 87, 1);
+}
+button.next:hover{
     border:none;
     padding:15px 25px;
     border-radius: 5px;
@@ -85,25 +91,15 @@ button{
     padding:20px;
     margin:0 0 15px 0;
     border-radius:5px;
-    transition: all .1s ease-in-out; 
     cursor: pointer;
 }
 
 .quiz-choice-button-wrong{
     border:2px solid red;
+    background-color:rgba(232, 13, 13, 0.3);
 }
 .quiz-choice-button-correct{
     border:2px solid green;
-}
-.x-wrong{
-    font-size:20px;
-    margin-right:10px;
-    color:red;
-}
-.check{
-    font-size:20px;
-    margin-right:10px;
-    color:green;
 }
 
 header{
@@ -115,8 +111,7 @@ header{
     .quiz-wrapper{
         width:90%;
     }
-    .quiz-h1{
-
+    h1{
         font-size:24px;
     }
 }

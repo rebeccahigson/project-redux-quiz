@@ -1,7 +1,6 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { AnswerOptions } from "./AnswerOptions";
-import { CorrectAnswer } from "./CorrectAnswer";
 import { QuestionSummary } from "./QuestionSummary";
 
 
@@ -15,8 +14,6 @@ import { QuestionSummary } from "./QuestionSummary";
 
 
 export const CurrentQuestion = () => {
-
-  const dispatch = useDispatch();
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
@@ -46,7 +43,6 @@ export const CurrentQuestion = () => {
     <form>
       <h1>Question: {question.questionText}</h1>
       <AnswerOptions />
-      {/* <CorrectAnswer />*/}
     </form>
     </>
   );

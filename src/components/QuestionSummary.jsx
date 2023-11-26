@@ -17,13 +17,15 @@ export const QuestionSummary = () => {
   return (
     <section className="quiz-summary">
         <h1 className="quiz-h1">Congratulations! You have finished the quiz!</h1>
-        <p>You got {correctAnswersSummary} answers correct out of 5</p>
+        <p>You got {correctAnswersSummary} answers correct out of 5.</p>
 
-        <button 
-        className="" 
-        onClick={handleRestart}>
-          Try again
-        </button>
+        <div className="bottom-buttons">
+          <button 
+          className="bottom-buttons" 
+          onClick={handleRestart}>
+            Try again
+          </button>
+        </div>
     </section>
   )
 }

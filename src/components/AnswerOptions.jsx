@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import { quiz } from '../reducers/quiz';
-import { CorrectAnswer } from "./CorrectAnswer";
 
 export const AnswerOptions = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ export const AnswerOptions = () => {
     (state) => state.quiz.answers.find((a) => a.questionId === question.id)
   );
 
+  const [isCorrect, setIsCorrect] = useState(null)
+
   // Submit answer
   const handleSubmitAnswer = (selectedAnswerIndex) => {
     dispatch(
@@ -21,14 +23,19 @@ export const AnswerOptions = () => {
       })
     );
 
-    if (answerIndex === question.correctAnswerIndex) {
+    
+
+    if (selectedAnswerIndex === question.correctAnswerIndex) {
       console.log("You are correct")
+      setIsCorrect(true);
 
-    } else { console.log("you are wrong")}
-
-
+    } else { 
+      console.log("you are wrong")
+      setIsCorrect(false);
+    }
   };
 
+  
   
   // Next question
   const handleGoToNextQuestion = () => {
@@ -46,7 +53,7 @@ export const AnswerOptions = () => {
         key={index}
         className="quiz-choice-container">
           <button
-          className="quiz-choice-button col-3-teaGreen"
+          className={`quiz-choice-button col-3-teaGreen ${isCorrect !== null && index === answer?.answerIndex ? (isCorrect ? "quiz-choice-button-correct" : "quiz-choice-button-wrong") : ""}`}
           onClick={() => handleSubmitAnswer(index)}
           disabled={answer !== undefined}>
             {choice}
@@ -54,14 +61,17 @@ export const AnswerOptions = () => {
         </div>
       ))
       }
+
       {answer !== undefined && (
         <>
-        <p>The correct answer is {question.options[question.correctAnswerIndex]}.</p>
-        <button
-        className="col-1-charcoal next"
-        onClick={handleGoToNextQuestion}>
-            Next Question
-        </button>
+        <p className="correct-answer">The correct answer is {question.options[question.correctAnswerIndex]}.</p>
+        <div className="bottom-buttons">
+          <button
+          className="col-1-charcoal next"
+          onClick={handleGoToNextQuestion}>
+              Next Question
+          </button>
+        </div>
         </>
       )}
      
